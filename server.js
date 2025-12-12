@@ -130,22 +130,12 @@ app.get('/{*path}', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Start server
-app.listen(PORT, async () => {
-  const ytdlp = await isYtdlpAvailable();
-  console.log(`
-╔═══════════════════════════════════════════╗
-║         Social Media Viewer               ║
-║                                           ║
-║   Server running at:                      ║
-║   http://localhost:${PORT}                     ║
-║                                           ║
-║   Supported platforms:                    ║
-║   • Twitter/X                             ║
-║   • Instagram                             ║
-║   • TikTok                                ║
-║                                           ║
-║   yt-dlp: ${ytdlp ? 'Available ✓' : 'Not installed ✗'}                    ║
-╚═══════════════════════════════════════════╝
-  `);
+// Start server - bind to 0.0.0.0 for container deployments
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
+
+  // Check yt-dlp availability asynchronously
+  isYtdlpAvailable().then(ytdlp => {
+    console.log(`yt-dlp: ${ytdlp ? 'Available' : 'Not installed'}`);
+  });
 });
