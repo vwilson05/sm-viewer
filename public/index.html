@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View social media posts without the clutter">
+  <meta name="theme-color" content="#1a1a2e">
+  <title>SM Viewer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>SM Viewer</h1>
+      <p class="subtitle">View social media posts. No apps. No clutter.</p>
+    </header>
+
+    <main>
+      <form id="url-form">
+        <div class="input-group">
+          <input
+            type="url"
+            id="url-input"
+            placeholder="Paste a Twitter or Instagram link..."
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+            required
+          >
+          <button type="submit" id="submit-btn">
+            <span class="btn-text">View</span>
+            <span class="btn-loading" hidden>
+              <span class="spinner"></span>
+            </span>
+          </button>
+        </div>
+        <p class="supported-platforms">
+          Supports: Twitter/X, Instagram
+        </p>
+      </form>
+
+      <div id="error-container" class="error-container" hidden>
+        <p id="error-message"></p>
+      </div>
+
+      <article id="content-container" class="content-container" hidden>
+        <!-- Content will be dynamically inserted here -->
+      </article>
+    </main>
+
+    <footer>
+      <p>No tracking. No accounts. Just content.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

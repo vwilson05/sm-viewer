@@ -1,0 +1,16 @@
+{
+  "name": "sm-viewer",
+  "version": "1.0.0",
+  "description": "Lightweight social media viewer for Instagram and Twitter",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "puppeteer": "^24.33.0"
+  }
+}
